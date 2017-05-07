@@ -287,11 +287,10 @@ func (t *BVP) Invoke(stub shim.ChaincodeStubInterface, function string, args []s
 	if function == "addProducts" {
 		t := BVP{}
 		return t.addProducts(stub, args)	
-	} 
-	/*else if function == "addProductHistory" { 
+	} else if function == "addProductHistory" { 
 		t := BVP{}
 		return t.addProductHistory(stub, args)
-	}*/
+	}
 
 	return nil, errors.New("Invalid invoke function name.")
 
