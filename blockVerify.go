@@ -157,6 +157,8 @@ func (t *BVP) getAllTransaction(stub shim.ChaincodeStubInterface, args []string)
 	//assignerRole := args[1]
 
 	var columns []shim.Column
+	col1 := shim.Column{Value: &shim.Column_String_{String_: productName}}
+	columns = append(columns, col1)
 
 	rows, err := stub.GetRows("Transaction", columns)
 	if err != nil {
@@ -204,7 +206,7 @@ func (t *BVP) addProductHistory(stub shim.ChaincodeStubInterface, args []string)
 	productOwner := args[5]
 	remarks := args[6]
 	
-	fmt.Printf("Last Product Owner: %s", trxntype)
+	fmt.Printf("Transaction Type: %s", trxntype)
 	// Get the row pertaining to this product name
 	var columns []shim.Column
 	col1 := shim.Column{Value: &shim.Column_String_{String_: productName}}
